@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "Image Source Extractor",
+    "version": "1.0",
+    "description": "Displays the source URL of an image when clicked.",
+    "permissions": ["activeTab", "scripting"],
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ]
+  }

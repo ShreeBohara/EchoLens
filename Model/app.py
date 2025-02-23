@@ -24,11 +24,15 @@ os.environ["GROQ_API_KEY"] = groq_api_key
 from groq import Groq
 client = Groq()
 
+
+
 @app.route('/get_desc', methods=['POST'])
 def get_desc():
     print("hello")
     data = request.get_json()
     image_url = data.get("image_url")
+    if not os.path.exists('sound'):
+        os.makedirs('sound')
     if not image_url:
         return jsonify({"error": "Image URL is required"}), 400
     

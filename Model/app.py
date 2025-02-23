@@ -4,6 +4,8 @@ import re
 from flask import Flask, render_template, request, jsonify, send_file
 from gtts import gTTS
 from dotenv import load_dotenv  # Import this to load environment variables
+from flask_cors import CORS  # Add this line
+
 
 # Load environment variables from .env file
 load_dotenv()
@@ -74,7 +76,8 @@ def get_desc():
     cleaned_summary = re.sub(r'\s+', ' ', cleaned_summary).strip()
 
     print(cleaned_summary)
-    audio_filename = "/Users/shree/Documents/Documents/CODES/hackk/sound/cleaned_summary1.mp3"
+    audio_filename = "sound/cleaned_summary1.mp3"
+
 
     # Initialize the pyttsx3 TTS engine (this will be used for speech)
    # engine = pyttsx3.init()
@@ -91,7 +94,7 @@ def get_desc():
 
     # Now use gTTS to save the text as an MP3
     tts = gTTS(text=cleaned_summary, lang='en')
-    tts.save("/Users/shree/Documents/Documents/CODES/hackk/sound/cleaned_summary1.mp3")
+    tts.save("sound/cleaned_summary1.mp3")
 
     return send_file(audio_filename, mimetype="audio/mpeg", as_attachment=True, download_name=audio_filename)
 

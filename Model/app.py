@@ -1,19 +1,23 @@
-import getpass
+
 import os
-import datetime
 import re
 from flask import Flask, render_template, request, jsonify, send_file
-import requests
-from flask_cors import CORS  
-import pyttsx3
 from gtts import gTTS
+from dotenv import load_dotenv  # Import this to load environment variables
+
+# Load environment variables from .env file
+load_dotenv()
+
 
 app = Flask(__name__)
 CORS(app)
 
+groq_api_key = os.getenv("GROQ_API_KEY")
 
-if "GROQ_API_KEY" not in os.environ:
-    os.environ["GROQ_API_KEY"] = "" #add your groq api key
+if not groq_api_key:
+    raise ValueError("GROQ_API_KEY is not set in environment variables!")
+
+os.environ["GROQ_API_KEY"] = groq_api_key
 
 from groq import Groq
 client = Groq()

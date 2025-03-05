@@ -2,7 +2,7 @@
 let previouslySelectedImage = null;
 let audio = null;
 
-// Function to provide verbal confirmation using Text-to-Speech
+
 function speak(message, callback) {
     const speech = new SpeechSynthesisUtterance(message);
     speech.rate = 1; // Adjust speech rate if needed
@@ -40,7 +40,7 @@ document.addEventListener('click', function (event) {
         let imgSrc = target.src;
 
         // Send the image source URL to the Flask application
-        fetch('http://127.0.0.1:8080/get_desc', {
+        fetch('https://echolens.onrender.com/get_desc', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

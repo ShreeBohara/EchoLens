@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Image Source Extractor",
-    "version": "1.0",
-    "description": "Displays the source URL of an image when clicked.",
+    "name": "EchoLens: Voice-Enhanced Image Accessibility for the Visually Impaired",
+    "version": "2.0",
+    "description": "EchoLens provides voiceover descriptions for web images, making them accessible to visually impaired users.",
     "permissions": ["activeTab", "scripting"],
     "content_scripts": [
       {
